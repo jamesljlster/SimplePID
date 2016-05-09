@@ -1,6 +1,6 @@
 #include <string.h>
 
-#include <SPID.h>
+#include "SPID.h"
 
 int SPID_ZeroMemory(SPID* sPIDPtr)
 {
@@ -18,13 +18,13 @@ int SPID_SetWeight(SPID* sPIDPtr, double weightOfP, double weightOfI, double wei
     return 0;
 }
 
-extern double SPID_Control(SPID* sPIDPtr, double desireOutput)
+double SPID_Control(SPID* sPIDPtr, double desireOutput, double realOutput)
 {
     double calcTmp;
     double outputOfP, outputOfI, outputOfD;
 
     // Calculate error
-    sPIDPtr->error = output - desireOutput;
+    sPIDPtr->error = realOutput - desireOutput;
 
     // Calculate partial output of P
     outputOfP = sPIDPtr->weightOfP * sPIDPtr->error;
@@ -45,7 +45,7 @@ extern double SPID_Control(SPID* sPIDPtr, double desireOutput)
 
 int SPID_ClearError(SPID* sPIDPtr)
 {
-    sPIDPtr->currentErr = 0;
+    sPIDPtr->error = 0;
     sPIDPtr->errIntegral = 0;
 
     return 0;

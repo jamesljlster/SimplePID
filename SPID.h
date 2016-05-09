@@ -18,7 +18,7 @@ typedef struct _SPID SPID;
 extern "C" {
 #endif // __cplusplus
 
-extern double SPID_Control(SPID* sPIDPtr, double desireOutput);
+extern double SPID_Control(SPID* sPIDPtr, double desireOutput, double realOutput);
 
 extern int SPID_ZeroMemory(SPID* sPIDPtr);
 
