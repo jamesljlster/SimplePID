@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1462754108 source:d:\codeproject\codeblocks\pid\simplepid\simplepid_project\spid.c
+	<string.h>
+	"SPID.h"
+
+1462754108 d:\codeproject\codeblocks\pid\simplepid\simplepid_project\spid.h
+
