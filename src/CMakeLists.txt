@@ -1,0 +1,34 @@
+cmake_minimum_required(VERSION 2.8)
+
+# Set project
+project(SPID C CXX)
+
+# Include directory
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
+# Set file list
+set(SPID_SRCS
+	${CMAKE_CURRENT_SOURCE_DIR}/SPID.c
+	)
+
+set(SPID_HEADER
+	${CMAKE_CURRENT_SOURCE_DIR}/SPID.h
+	)
+
+# Build SPID library
+add_library(SPID STATIC ${SPID_SRCS})
+set_target_properties(SPID
+	PROPERTIES
+		OUTPUT_NAME		"SPID"
+		PREFIX			"lib"
+		PUBLIC_HEADET	${SPID_HEADER}
+	)
+
+# Installing
+install(TARGETS SPID
+	RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}/bin"
+	ARCHIVE DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
+	LIBRARY DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
+	PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_PREFIX}/include"
+	)
+

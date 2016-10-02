@@ -38,3 +38,6 @@
 
 # Temp file
 *.swp
+
+# Build folder
+build
