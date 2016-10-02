@@ -21,7 +21,7 @@ set_target_properties(SPID
 	PROPERTIES
 		OUTPUT_NAME		"SPID"
 		PREFIX			"lib"
-		PUBLIC_HEADET	${SPID_HEADER}
+		PUBLIC_HEADER	${SPID_HEADER}
 	)
 
 # Installing

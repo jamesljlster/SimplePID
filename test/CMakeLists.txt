@@ -9,9 +9,16 @@ set(SPID_TEST_SRCS
 	)
 
 # Set depedences
-set(SPID_TEST_DEPS
-	SPID
-	)
+if(MINGW)
+	set(SPID_TEST_DEPS
+		SPID
+		)
+else()
+	set(SPID_TEST_DEPS
+		SPID
+		conio
+		)
+endif()
 
 # Build test
 add_executable(SPID_TEST_BIN ${SPID_TEST_SRCS})
@@ -19,7 +26,7 @@ set_target_properties(SPID_TEST_BIN
 	PROPERTIES
 	OUTPUT_NAME	"SPID_test"
 	)
-target_link_libraries(SPID_TEST_BIN SPID_TEST_DEPS)
+target_link_libraries(SPID_TEST_BIN ${SPID_TEST_DEPS})
 
 # Installing
 install(TARGETS SPID_TEST_BIN
