@@ -30,3 +30,11 @@
 
 # Debug files
 *.dSYM/
+
+# Project file
+*.cbp
+*.depend
+*.layout
+
+# Temp file
+*.swp
